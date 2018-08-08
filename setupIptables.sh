@@ -71,7 +71,7 @@ if [[ $1 == "addUser" ]]; then
 
   for server in $serverLists; do
     printf "$server \e[32mSTART\e[0m\n"
-    ssh $server "bash -s" < addUser.sh secret ${port}
+    ssh $server "bash -s" < addUser.sh ${secret} ${port}
     # docker stop shadow_${port} | at now + ${length} days
     echo "Create user whose secret is ${secret}, Port is ${port}, length is ${length} days"
     printf "@$server \e[32mFinish\e[0m\n"
